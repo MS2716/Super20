@@ -1,0 +1,108 @@
+/* Navigation */
+#navbar {
+    flex-direction: column;
+}
+
+#navbar ul li a{
+    font-size: 15px;
+    padding: 0px 7px;
+    padding-bottom: 8px;
+}
+/* Home section */
+#home{
+    height: 370px; 
+    padding: 3px 28px;
+}
+
+.h1{
+    font-size: 50px;
+}
+
+#home::before{
+    height: 480px; 
+}
+
+#home p{
+    font-size: 13px;
+}
+
+/* AboutUs section  */
+#AboutUs{
+    flex-direction: column;
+}
+
+#AboutUs .box { 
+    padding: 0px;
+    margin: 2px 0px; 
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+#AboutUs-container p {
+    color: black;
+    text-align: center;
+    font-size: 15px;
+    font-family: 'Bree Serif', serif;
+}
+
+/* Clients section */
+#clients{
+    flex-wrap: wrap;
+}
+
+#client-section p {
+    color: black;
+    text-align: center;
+    font-size: 1.5rem;
+    font-family: 'Bree Serif', serif;
+    font-size: 15px;
+}
+
+#clients img{
+    width: 66px;
+    padding: 6px;
+    height: auto;
+}
+
+/* Contact us section */
+#contact-box form{
+    width:80%;
+}
+
+#contact-box label{
+    font-size: 15px;
+}
+
+#contact-box input{
+    font-size:10px ;
+}
+#message{
+    columns: "30";
+    grid-row:"3";
+}
+.btn {
+    font-size: 13px;
+    padding: 4px 8px;
+    margin: 10px;
+}
+/* Footer */
+footer {
+    background: black;
+    color: white;
+    padding: 9px 20px;
+    font-size: 20px;
+}
+/* Utility classes */
+.h-primary{
+    font-size:15px;
+}
+.btn{
+    font-size: 13px;
+    padding: 4px 8px;
+}
+
+.h-secondary {
+    font-family: 'Bree Serif', serif;
+    padding: 12px;
+    font-size: medium;
+}

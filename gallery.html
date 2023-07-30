@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Scrolling Animation</title>
+    <link rel="stylesheet" media="screen and (max-width: 1170px)" href="gallery.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Baloo+Bhai|Bree+Serif&display=swap" rel="stylesheet">
+    
+    <style>
+        html,
+        body,
+        .stage,
+        .ring {
+            width: 100%;
+            height: 100%;
+            transform-style: preserve-3d;
+            user-select: none;
+        }
+
+        .img {
+            width: 100%;
+            height: 100%;
+            transform-style: preserve-3d;
+            user-select: none;
+        }
+
+        html,
+        body,
+        .stage {
+            overflow: hidden;
+            background: #000;
+            margin: 0;
+            padding: 0;
+        }
+
+        div,
+        svg {
+            position: absolute;
+        }
+
+        .container {
+            perspective: 2000px;
+            width: 300px;
+            height: 400px;
+            left: 50%;
+            top: 46%;
+            transform: translate(-50%, -50%);
+        }
+
+        .stage::before {
+            content: "";
+            position: absolute;
+            background: url('templates/1.png') no-repeat center center/cover;
+            height: 642px;
+            top: 0px;
+            left: 0px;
+            width: 100%;
+            z-index: -1;
+            opacity: 0.20;
+        }
+
+        #navbar {
+            display: flex;
+            align-items: center;
+            position: sticky;
+            top: 0px;
+            z-index: 100;
+            margin: 0px;
+            padding: 0px;
+        }
+
+        #navbar::before {
+            content: "";
+            background-color: white;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            height: 100%;
+            width: 100%;
+            z-index: -1;
+            opacity: 0.7;
+        }
+
+        /* Navigation Bar: Logo and Image */
+        #logo {
+            margin: 10px 34px;
+        }
+
+        #logo img {
+            height: 59px;
+            margin: 3px 6px;
+        }
+
+
+        /* Navigation Bar: List Styling */
+
+        #navbar ul {
+            display: flex;
+            font-family: 'Baloo Bhai', cursive;
+        }
+
+        #navbar ul li {
+            list-style: none;
+            font-size: 1.3rem;
+            margin-left: 100px;
+        }
+
+        #navbar ul li a {
+            color: black;
+            display: block;
+            padding: 3px 22px;
+            border-radius: 20px;
+            text-decoration: none;
+        }
+
+        #navbar ul li a:hover {
+            color: whitesmoke;
+            background-color: black;
+        }
+
+        footer {
+            background: black;
+            color: white;
+            padding: 9px 20px;
+        }
+      
+    </style>
+</head>
+
+<body>
+    <nav id="navbar">
+        <div id="logo">
+            <img src="templates/logo.png" alt="Super 20.com">
+        </div>
+        <ul>
+            <li class="item"><a href="Homes.html#home">Home</a></li>
+            <li class="item"><a href="Homes.html#AboutUs-container">About Us</a></li>
+            <li class="item"><a href="Homes.html#client-section">About GMI</a></li>
+            <li class="item"><a href="Homes.html#contact">Contact Us</a></li>
+            <li class="item"><a href="gallery.html">Gallery</a></li>
+        </ul>
+    </nav>
+    <div class="stage">
+
+
+        <div class="container">
+            <div class="ring">
+                <div class="img"><img src="templates/4.jpeg"></div>
+                <div class="img"><img src="templates/5.jpg"></div>
+                <div class="img"><img src="templates/6.jpeg"></div>
+                <div class="img"><img src="templates/7.jpg"></div>
+                <div class="img"><img src="templates/8.jpg"></div>
+                <div class="img"><img src="templates/9.jpg"></div>
+                <div class="img"><img src="templates/10.jpg"></div>
+                <div class="img"><img src="templates/11.jpg"></div>
+                <div class="img"><img src="templates/12.jpeg"></div>
+                <div class="img"><img src="templates/13.jpg"></div>
+                <div class="img"><img src="templates/14.jpg"></div>
+                <div class="img"><img src="templates/15.jpg"></div>
+                <div class="img"><img src="templates/16.jpg"></div>
+                <div class="img"><img src="templates/17.jpg"></div>
+                <div class="img"><img src="templates/18.jpg"></div>
+                <div class="img"><img src="templates/19.jpg"></div>
+                <div class="img"><img src="templates/20.jpg"></div>
+                <div class="img"><img src="templates/21.jpg"></div>
+                <div class="img"><img src="templates/22.jpg"></div>
+                <div class="img"><img src="templates/23.jpg"></div>
+                <div class="img"><img src="templates/24.jpg"></div>
+                <div class="img"><img src="templates/25.jpg"></div>
+                <div class="img"><img src="templates/26.jpg"></div>
+                <div class="img"><img src="templates/27.jpg"></div>
+                <div class="img"><img src="templates/29.jpg"></div>
+                <div class="img"><img src="templates/30.jpg"></div>
+                <div class="img"><img src="templates/31.jpg"></div>
+            </div>
+        </div>
+
+    </div>
+    
+    <script>
+        let xPos = 0;
+
+        gsap.timeline()
+            .set('.ring', { rotationY: 180, cursor: 'grab' }) //set initial rotationY so the parallax jump happens off screen
+            .set('.img', { // apply transform rotations to each image
+                rotateY: (i) => i * -18,
+                transformOrigin: '50% 50% 1000px',
+                z: -1000,
+                backgroundPosition: (i) => getBgPos(i),
+                backfaceVisibility: 'hidden'
+            })
+
+            .from('.img', {
+                duration: 1.5,
+                y: 200,
+                opacity: 0,
+                stagger: 0.1,
+                ease: 'expo'
+            })
+            .add(() => {
+                $('.img').on('mouseenter', (e) => {
+                    let current = e.currentTarget;
+                    gsap.to('.img', { opacity: (i, t) => (t == current) ? 1 : 0.5, ease: 'power3' })
+                })
+                $('.img').on('mouseleave', (e) => {
+                    gsap.to('.img', { opacity: 1, ease: 'power2.inOut' })
+                })
+            }, '-=0.5')
+
+        $(window).on('mousedown touchstart', dragStart);
+        $(window).on('mouseup touchend', dragEnd);
+
+
+        function dragStart(e) {
+            if (e.touches) e.clientX = e.touches[0].clientX;
+            xPos = Math.round(e.clientX);
+            gsap.set('.ring', { cursor: 'grabbing' })
+            $(window).on('mousemove touchmove', drag);
+        }
+
+
+        function drag(e) {
+            if (e.touches) e.clientX = e.touches[0].clientX;
+
+            gsap.to('.ring', {
+                rotationY: '-=' + ((Math.round(e.clientX) - xPos) % 360),
+                onUpdate: () => { gsap.set('.img', { backgroundPosition: (i) => getBgPos(i) }) }
+            });
+
+            xPos = Math.round(e.clientX);
+        }
+
+
+        function dragEnd(e) {
+            $(window).off('mousemove touchmove', drag);
+            gsap.set('.ring', { cursor: 'grab' });
+        }
+
+
+        function getBgPos(i) { //returns the background-position string to create parallax movement in each image
+            return (100 - gsap.utils.wrap(0, 360, gsap.getProperty('.ring', 'rotationY') - 180 - i * 36) / 360 * 500) + 'px 0px';
+        }
+    </script>
+    
+</body>
+<footer>
+    <div class="center">
+        Copyright &copy; greatmanagerinstitute.com All rights reserved!
+    </div>
+</footer>
+</html>

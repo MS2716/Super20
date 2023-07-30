@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>MyApp</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="form.css">
+  <link href="https://fonts.googleapis.com/css?family=Baloo+Bhai|Bree+Serif&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <nav id="navbar">
+    <div id="logo">
+      <img src="templates/logo.png" alt="Super 20.com">
+    </div>
+    <ul>
+      <li class="item"><a href="#home">Home</a></li>
+      <li class="item"><a href="#AboutUs-container">About Us</a></li>
+      <li class="item"><a href="#client-section">About GMI</a></li>
+      <li class="item"><a href="#contact">Contact Us</a></li>
+      <li class="item"><a href="gallery.html">Gallery</a></li>
+    </ul>
+  </nav>
+  <section id="form">
+    <div id="form-box">
+      <form action="from.php" method="post">
+        <div class="form-group">
+          <label for="name">First Name: </label>
+          <input type="text" name="name" id="name" placeholder="Enter your name">
+        </div>
+        <div class="form-group">
+          <label for="LastName">Last Name: </label>
+          <input type="LastName" name="LastName" id="Last Name" placeholder="Enter your Last Name">
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone Number: </label>
+          <input type="phone" name="phonenumber" id="phone" placeholder="Enter your phone">
+        </div>
+        <div class="form-group">
+          <div class="form-group">
+            <label for="EmailID">EmailID: </label>
+            <input type="EmailID" name="EmailID" id="EmailID" placeholder="Enter your EmailID">
+          </div>
+          <div class="form-group">
+            <div class="form-group">
+              <label for="10thStandard">10th Standard%: </label>
+              <input type="10thStandard" name="sscStandard" id="phone" placeholder="Enter your %">
+            </div>
+            <div class="form-group">
+              <label for="12thStandard%">12th Standard%: </label>
+              <input type="12thStandard" name="hscthStandard" id="12thStandard" placeholder="Enter your %">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="Last">Last sem % or cgpa: </label>
+            <input type="Last" name="Last" id="Last" placeholder="Enter your % or cgpa">
+          </div>
+          <div class="form-group">
+            <label for="About">About Yourself: </label>
+            <textarea name="About" id="About" cols="50" rows="10"></textarea>
+          </div>
+          <button class="btn">Submit</button>
+      </form>
+    </div>
+  </section>
+</body>
+
+</html>
