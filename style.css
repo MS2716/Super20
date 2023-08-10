@@ -203,7 +203,7 @@ html{
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-bottom: 34px;
+    padding-bottom: 0px;
 }
 #contact-box input, 
 #contact-box textarea{
@@ -254,6 +254,7 @@ footer{
     border: none;
     font-family: 'Bree Serif';
     background: none;
+    display: flex;
 }
 
 .btn:hover{
@@ -261,6 +262,27 @@ footer{
     background-color: black;
 }
 
+button{
+    margin-left: 400px ;
+    margin-bottom: 20px;
+    border: none;
+}
+.button a{
+    padding: 6px 20px;
+    color: black;
+    font-size: 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    border: none;
+    font-family: 'Bree Serif';
+    background: none;
+    text-decoration: none;
+}
+
+.button:hover a{
+    color: whitesmoke;
+    background-color: black;
+}
 
 .center{
     text-align: center;

@@ -3,11 +3,222 @@
 
 <head>
   <meta charset="utf-8">
-  <title>MyApp</title>
+  <title>form</title>
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="form.css">
+
   <link href="https://fonts.googleapis.com/css?family=Baloo+Bhai|Bree+Serif&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0px;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* CSS Variables */
+    :root {
+      --navbar-height: 59px;
+    }
+
+    /* Navigation Bar */
+    #navbar {
+      display: flex;
+      align-items: center;
+      position: sticky;
+      top: 0px;
+      z-index: 100;
+    }
+
+
+    /* Navigation Bar: Logo and Image */
+    #logo {
+      margin: 10px 34px;
+    }
+
+    #logo img {
+      height: 59px;
+      margin: 3px 6px;
+    }
+
+
+    /* Navigation Bar: List Styling */
+
+    #navbar ul {
+      display: flex;
+      font-family: 'Baloo Bhai', cursive;
+    }
+
+    #navbar ul li {
+      list-style: none;
+      font-size: 1.3rem;
+    }
+
+    #navbar ul li a {
+      color: black;
+      display: block;
+      padding: 3px 22px;
+      border-radius: 20px;
+      text-decoration: none;
+    }
+
+    #navbar ul li a:hover {
+      color: whitesmoke;
+      background-color: black;
+    }
+
+    #navbar::before {
+      content: "";
+      background-color: white;
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      height: 100%;
+      width: 100%;
+      z-index: -1;
+      opacity: 0.7;
+      background: transparent;
+    }
+
+    #form {
+      position: relative;
+      border: black 2px solid;
+    }
+
+    #form::before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      opacity: 0.20;
+      background: url('templates/computer.jpg') no-repeat center center/cover;
+
+    }
+
+    #form-box {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding-bottom: 34px;
+      padding-top: 50px;
+      margin: 5px;
+
+    }
+
+    #form-box input,
+    #form-box textarea {
+      width: 95%;
+      padding: 0.5rem;
+      border-radius: 9px;
+      font-size: 17px;
+      border-color: black;
+      border: 10px;
+      background: transparent;
+    }
+
+    #form-box form {
+      width: 40%;
+      border: black 1px solid;
+      padding: 10px;
+    }
+
+    #form-box label {
+      font-size: 17px;
+      font-family: 'Bree Serif', serif;
+
+    }
+
+    .btn {
+      font-size: 17px;
+      color: black;
+      background: transparent;
+      font-family: 'Bree Serif', serif;
+      border: none;
+      margin: 5px;
+      padding: 3px;
+    }
+
+    .btn:hover {
+      font-size: 17px;
+      color: whitesmoke;
+      background-color: black;
+      font-family: 'Bree Serif', serif;
+    }
+
+    @media screen and (max-width: 600px) {
+
+      * {
+        margin: 0px;
+        padding: 0;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      /* CSS Variables */
+      :root {
+        --navbar-height: 59px;
+      }
+
+      /* Navigation Bar */
+      #navbar {
+        display: block;
+        align-items: center;
+        background: transparent;
+        position: sticky;
+        top: 0px;
+        z-index: 100;
+      }
+
+      #navbar ul li {
+        list-style: none;
+        font-size: 11px;
+      }
+
+      #form-box form {
+        width: 40%;
+        border: black 1px solid;
+        padding: 20px;
+      }
+
+      #form-box label {
+        font-size: 15px;
+        font-family: 'Bree Serif', serif;
+
+      }
+
+      #form-box input,
+      #form-box textarea {
+        width: 90%;
+        padding: 0.5rem;
+        border-radius: 9px;
+        font-size: 15px;
+        border-color: black;
+        border: 10px;
+      }
+
+      .btn {
+        font-size: 15px;
+        color: black;
+        background-color: transparent;
+        font-family: 'Bree Serif', serif;
+        border : none;
+        margin : 5px;
+        padding : 3px;
+      }
+
+      .btn:hover {
+        font-size: 15px;
+        color: whitesmoke;
+        background-color: #870909d4;
+        font-family: 'Bree Serif', serif;
+      }
+    }
+  </style>
 </head>
 
 <body>
@@ -16,55 +227,53 @@
       <img src="templates/logo.png" alt="Super 20.com">
     </div>
     <ul>
-      <li class="item"><a href="#home">Home</a></li>
-      <li class="item"><a href="#AboutUs-container">About Us</a></li>
-      <li class="item"><a href="#client-section">About GMI</a></li>
-      <li class="item"><a href="#contact">Contact Us</a></li>
+      <li class="item"><a href="Homes.html#home">Home</a></li>
+      <li class="item"><a href="Homes.html#AboutUs-container">About Us</a></li>
+      <li class="item"><a href="Homes.html#client-section">About GMI</a></li>
+      <li class="item"><a href="Homes.html#contact">Contact Us</a></li>
       <li class="item"><a href="gallery.html">Gallery</a></li>
     </ul>
   </nav>
   <section id="form">
     <div id="form-box">
-      <form action="from.php" method="post">
+      <form action="form.php" method="post">
         <div class="form-group">
-          <label for="name">First Name: </label>
-          <input type="text" name="name" id="name" placeholder="Enter your name">
+          <label for="firstName">First Name: </label>
+          <input type="text" name="firstName" id="firstName" placeholder="Enter your first name">
         </div>
         <div class="form-group">
-          <label for="LastName">Last Name: </label>
-          <input type="LastName" name="LastName" id="Last Name" placeholder="Enter your Last Name">
+          <label for="lastName">Last Name: </label>
+          <input type="text" name="lastName" id="lastName" placeholder="Enter your last name">
         </div>
         <div class="form-group">
-          <label for="phone">Phone Number: </label>
-          <input type="phone" name="phonenumber" id="phone" placeholder="Enter your phone">
+          <label for="phoneNumber">Phone Number: </label>
+          <input type="text" name="phoneNumber" id="phoneNumber" placeholder="Enter your phone number">
         </div>
         <div class="form-group">
-          <div class="form-group">
-            <label for="EmailID">EmailID: </label>
-            <input type="EmailID" name="EmailID" id="EmailID" placeholder="Enter your EmailID">
-          </div>
-          <div class="form-group">
-            <div class="form-group">
-              <label for="10thStandard">10th Standard%: </label>
-              <input type="10thStandard" name="sscStandard" id="phone" placeholder="Enter your %">
-            </div>
-            <div class="form-group">
-              <label for="12thStandard%">12th Standard%: </label>
-              <input type="12thStandard" name="hscthStandard" id="12thStandard" placeholder="Enter your %">
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="Last">Last sem % or cgpa: </label>
-            <input type="Last" name="Last" id="Last" placeholder="Enter your % or cgpa">
-          </div>
-          <div class="form-group">
-            <label for="About">About Yourself: </label>
-            <textarea name="About" id="About" cols="50" rows="10"></textarea>
-          </div>
-          <button class="btn">Submit</button>
+          <label for="email">EmailID: </label>
+          <input type="text" name="email" id="email" placeholder="Enter your email">
+        </div>
+        <div class="form-group">
+          <label for="ssc">10th Standard%: </label>
+          <input type="text" name="ssc" id="ssc" placeholder="Enter your %">
+        </div>
+        <div class="form-group">
+          <label for="hsc">12th Standard%: </label>
+          <input type="text" name="hsc" id="hsc" placeholder="Enter your %">
+        </div>
+        <div class="form-group">
+          <label for="last">Last sem % or cgpa: </label>
+          <input type="text" name="last" id="last" placeholder="Enter your % or cgpa">
+        </div>
+        <div class="form-group">
+          <label for="about">About Yourself: </label>
+          <textarea name="about" id="about" cols="50" rows="10"></textarea>
+        </div>
+        <button class="btn" type="submit">Submit</button>
       </form>
     </div>
   </section>
+  
 </body>
 
 </html>
